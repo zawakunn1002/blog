@@ -1,0 +1,74 @@
+.o-title {
+  @include m(main){
+    padding-bottom:24px;
+    overflow: hidden;
+    @include mq{
+      padding-bottom: 48px;
+    }
+    span{
+      display: block;
+      color: $c_black;
+      line-height: 1.5;
+    }
+    span:nth-child(1){
+      font-size: 2rem;
+      display: inline-block;
+      position: relative;
+      &:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -220px;
+        width: 200px;
+        height: 1px;
+        background-color: $c_black;
+        margin: auto;
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: $c_grey;
+        border-radius: 50%;
+        top: 0;
+        right: -20px;
+        -webkit-animation: animation 10s infinite;
+        animation: animation 10s infinite;
+        animation-name: title;
+        @-webkit-keyframes title {
+          0% {
+            -webkit-transform: translate(0, 0);
+          }
+          50% {
+            -webkit-transform: translate(200px, 0);
+          }
+          100% {
+            -webkit-transform: translate(0, 0);
+          }
+        }
+        @keyframes animation {
+          0% {
+              transform: translate(0, 0);
+          }
+          50% {
+              transform: translate(200px, 0);
+          }
+          100% {
+              transform: translate(0, 0);
+          }
+        }
+      }
+      @include mq_m{
+        font-size: 2.5rem;
+      }
+    }
+    span:nth-child(2){
+      font-size: 1.125rem;
+      @include mq_m{
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

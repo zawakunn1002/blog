@@ -1,0 +1,52 @@
+
+#page__top{
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 2%;
+  width: 40px;
+  height: 40px;
+  background-color: $c_white;
+  border: solid 1px $c_black;
+  border-radius: 50%;
+  z-index: 1000;
+  @include mq_m{
+    width: 50px;
+    height: 50px;
+  }
+  &:before{
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-top: solid 2px $c_black;
+    border-left: solid 2px $c_black;
+    width: 15px;
+    height: 15px;
+    z-index: 1001;
+    transform: rotate(45deg);
+    @include mq_m{
+      width: 20px;
+      height: 20px;
+      top: 18px;
+    }
+  }
+}
+
+footer{
+  width: 100%;
+  height: 40px;
+  background-color: $c_black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p{
+    color: white;
+    font-size: 0.70rem;
+    @include mq{
+      font-size: 0.75rem;
+    }
+  }
+}

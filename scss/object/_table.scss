@@ -1,0 +1,37 @@
+.o-table{
+    @include m(about_price){
+        overflow: auto;
+        white-space: nowrap;
+        border: solid 1px #ddd;
+        table{
+            width: 820px;
+            background-color: white;
+            border-collapse: collapse;
+            border: solid 2px #80581F;
+            box-sizing: border-box;
+            font-weight:bold;
+            @include mq_m{
+                width: 100%;
+            }
+            tr{
+                td{
+                    color: #80581F;
+                    vertical-align: middle;
+                    padding: 10px;
+                    border: solid 1px #80581F;
+                    font-size: 18px;
+                }
+                .back_y{
+                    background-color: #FFE400;
+                    font-size: 20px;
+                }
+                .back_o{
+                    background-color: #FFA633;
+                }
+                .back_ly{
+                    background-color: #FFFBC2;
+                }
+            }
+        }
+    }
+}

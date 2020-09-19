@@ -1,0 +1,58 @@
+.p-profile{
+  @include m(main){
+    padding: 24px 0;
+    width: 100%;
+    @include mq{
+      padding: 24px 0 40px;
+    }
+    .profile__content{
+      @include mq_m{
+        display: flex;
+        flex-flow: row-reverse;
+        justify-content: space-between;
+      }
+      .profile__content__right{
+        width: 100%;
+        margin-bottom: 20px;
+        @include mq_m{
+          width: 50%;
+          margin-bottom: 0;
+        }
+        .right__content{
+          margin-bottom: 20px;
+          @include mq_m{
+            display: flex;
+          }
+          p{
+            color: $c_black;
+            font-size: 16px;
+            line-height: 1.6;
+            @include mq{
+              font-size: 18px;
+            }
+          }
+          p:nth-child(1){
+            margin-bottom: 10px;
+            @include mq_m{
+              width: 22%;
+            }
+          }
+          p:nth-child(2){
+            @include mq_m{
+              width: 78%;
+            }
+          }
+        }
+      }
+      .profile__content__left{
+        width: 100%;
+        @include mq_m{
+          width: 48%;
+        }
+        img{
+          width: 100%;
+        }
+      }
+    }
+  }
+}

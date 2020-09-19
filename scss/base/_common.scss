@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+html, body {
+  font-family: 'Noto Serif JP', serif;
+  background-color: $c_white;
+}
+
+.font_mon{
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.font_kozuka{
+  font-family: "Kozuka Gothic Pr6N", sans-serif;
+}
+
+.font_yugo{
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+}
+
+.font_yumin{
+  font-family: "游明朝体", "Yu Mincho", YuMincho, "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "MS P明朝", "MS PMincho", serif;
+}
+
+.font_hirasan{
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "ヒラギノ角ゴシック", Meiryo, メイリオ, sans-serif;
+}
+
+.font_hiramin {
+  font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+}
+
+.font_hirakaku {
+  font-family: "HiraKakuProN-W3","ヒラギノ角ゴ ProN W3","ヒラギノ角ゴ Pro W3","HiraKakuPro-W3","HiraKakuProN-W6", "ヒラギノ角ゴ ProN W6","メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS Pgothic","Osaka",sans-serif,Helvetica, Helvetica Neue, Arial, Verdana;
+}
+
+.font_hel{
+  font-family: Helvetica, Helvetica Neue,sans-serif,;
+}
+
+.font_meirio{
+  font-family:'メイリオ', 'Meiryo','ＭＳ ゴシック','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
+}
+
+.font_lato{
+  font-family: 'Lato', sans-serif;
+}
+
+.font_noto{
+  font-family: 'Noto Serif JP', serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+header, nav, main, footer, small, button, label {
+  display: block;
+}
+
+a,button {
+  cursor: pointer;
+  text-decoration: none;
+  max-width: 100%;
+}
+
+button:hover, button:active{
+  outline: 0;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+input, button, textarea, select {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  outline: none;
+}
+
+a:hover, a:active{
+  outline: 0;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+::-webkit-input-placeholder {
+  color: #a5a5a5;
+}
+:-ms-input-placeholder {
+  color: #a5a5a5;
+}
+::-moz-placeholder {
+  color: #a5a5a5;
+}
+::-placeholder {
+  color: #a5a5a5;
+}
+
+input, button, textarea, select {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+  border: 1px solid #b5b5b5;
+  border-radius: 0;
+  outline: none;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+}
+select {
+  cursor: pointer;
+}
+
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.containner {
+  padding-bottom: 40px;
+  @include mq {
+    padding-bottom: 80px;
+  }
+  @include m(pb_none) {
+    padding-bottom: 0;
+  }
+}
+
+.flex{
+  display: flex;
+}
+
+
+.innerBox {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2%;
+  @include mq_mm{
+    padding: 0;
+  } 
+}
+
+.min-620{
+  min-height: 620px;
+}
+
+.mb-30{
+  margin-bottom: 30px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.medium {
+  font-weight: 500;
+}
+
+.left{
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.display_to_mq {
+  @include mq {
+    display: none;
+  }
+}
+
+.display_to_mq_m {
+  @include mq_m {
+    display: none;
+  }
+}
+
+.display_mq {
+  display: none;
+  &.is-inline{
+    @include mq {
+      display: inline;
+    }
+  }
+  &.is-block{
+    @include mq {
+      display: block;
+    }
+  }
+}
+
+.display_mq_m {
+  display: none;
+  &.is-inline{
+    @include mq_m {
+      display: inline;
+    }
+  }
+  &.is-block{
+    @include mq_m {
+      display: block;
+    }
+  }
+}
+
+
+
+.relative_wrap {
+  position: relative;
+}
+
+
+.inline_block {
+  display: inline-block;
+}
+
+
+.text_indent {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+
+
+.font_mincho {
+  font-family: "ヒラギノ明朝 ProN W6", "HiraMinProN-W6", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", "Yu Mincho", "YuMincho", serif;
+}
+
+.font_gothic {
+  font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, arial, helvetica, sans-serif;
+}
+
+.c_pink {
+  color: #f29c9f;
+}
+
+.post_cnt {
+  iframe {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+img.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+img.alignleft {
+  display: block;
+  margin-right: auto;
+}
+
+img.alignright {
+  display: block;
+  margin-left: auto;
+}
+
+input[type="submit"],
+input[type="button"] {
+  border-radius: 0;
+  -webkit-box-sizing: content-box;
+  -webkit-appearance: button;
+  appearance: button;
+  border: none;
+  box-sizing: border-box;
+    &::-webkit-search-decoration {
+      display: none;
+    }
+    &::focus {
+      outline-offset: -2px;
+    }
+}
+
+.important__responsive__flex{
+  display: none !important;
+  @include mq{
+    display: flex !important;
+  }
+}
+
+.important__responsive__block{
+  display: none !important;
+  @include mq{
+    display: block !important;
+  }
+}
+
+.inner-left{
+  max-width: 820px;
+  width: 100%;
+  @include mq{
+    width: 75%;
+    margin: 0;
+  }
+}
+
+.innerBox-1280{
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.border-r-b{
+  border-right: solid 1px $c_black;
+  border-bottom: solid 1px $c_black;
+  position: relative;
+  &:before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 12px;
+    background-color: $c_black;
+    bottom: -12px;
+    right: -1px;
+    @include mq{
+      height: 20px;
+      bottom: -20px;
+    }
+  }
+  &:after{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 1px;
+    background-color: $c_black;
+    bottom: -1px;
+    right: -8px;
+    @include mq{
+      width: 16px;
+      right: -16px;
+    }
+  }
+}

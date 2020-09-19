@@ -1,0 +1,99 @@
+.p-contact{
+  @include m(main){
+    padding: 24px 0;
+    width: 100%;
+    @include mq{
+      padding: 48px 0;
+    }
+    .contact__main{
+      width: 100%;
+      margin-bottom: 24px;
+      @include mq_m{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      .contact__main__left{
+        width: 100%;
+        margin-bottom: 16px;
+        font-size: 16px;
+        color: $c_black;
+        @include mq{
+          font-size: 18px;
+        }
+        @include mq_m{
+          width: 25%;
+        }
+        span{
+          background-color: $c_black;
+          color: $c_white;
+          padding: 2px 5px;
+          margin-left: 20px;
+          font-size: 12px;
+          @include mq{
+            font-size: 14px;
+          }
+        }
+        
+      }
+      .contact__main__right{
+        width: 100%;
+        @include mq_m{
+          width: 75%;
+        }
+        input{
+          width: 100%;
+          background-color: $c_white;
+          border: solid 1px $c_grey;
+          height: 50px;
+          padding: 0 1em;
+          font-size: 14px;
+          font-family: 'Noto Serif JP', serif;
+          @include mq{
+            font-size: 16px;
+          }
+        }
+        textarea{
+          width: 100%;
+          height: 250px;
+          background-color: $c_white;
+          border: solid 1px $c_grey;
+          padding: 10px 1em;
+          font-size: 14px;
+          font-family: 'Noto Serif JP', serif;
+          @include mq{
+            font-size: 16px;
+          }
+        }
+        .wpcf7-not-valid-tip{
+          margin: 10px 0;
+        }
+      }
+    }
+    .submit{
+      margin: 40px auto 0;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      &:hover{
+        cursor: pointer;
+      }
+      input{
+        background-color: transparent;
+        color: $c_black;
+        font-size: 18px;
+        font-family: 'Noto Serif JP', serif;
+        width: 100%;
+        margin-left: 20px;
+        padding: 20px 0;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+    .wpcf7-response-output{
+      border: 0;
+    }
+  }
+}

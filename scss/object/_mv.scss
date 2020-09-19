@@ -1,0 +1,78 @@
+.o-mv{
+  z-index: 2;
+  position: relative;
+  margin-top: 54px;
+  @include mq_m{
+    margin-top: 80px;
+  }
+  @include mq_ll{
+    margin-top: 100px;
+  }
+  @include m(index){
+    width: 100%;
+    img{
+      width: 100%;
+    }
+    .index__scroll{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%); /* Safari用 */
+      transform: translate(-50%, -50%);
+      color: $c_white;
+      font-size: 1.5rem;
+      text-align: center;
+      width: 200px;
+      border: solid 2px $c_white;
+      line-height: 40px;
+      box-sizing: border-box;
+      letter-spacing: 0.1em;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: $c_black;
+        border-radius: 50%;
+        top: -3px;
+        left: -5px;
+        -webkit-animation: animation 10s infinite;
+        animation: animation 10s infinite;
+        @-webkit-keyframes animation {
+          0% {
+            -webkit-transform: translate(0, 0);
+          }
+          30% {
+            -webkit-transform: translate(200px, 0);
+          }
+          50% {
+            -webkit-transform: translate(200px, 40px);
+          }
+          80% {
+            -webkit-transform: translate(0, 40px);
+          }
+          100% {
+            -webkit-transform: translate(0, 0);
+          }
+        }
+        @keyframes animation {
+          0% {
+              transform: translate(0, 0);
+          }
+          30% {
+              transform: translate(200px, 0);
+          }
+          50% {
+              transform: translate(200px, 40px);
+          }
+          80% {
+              transform: translate(0, 40px);
+          }
+          100% {
+              transform: translate(0, 0);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+/*
+ * BEM関連
+ */
+@mixin e($names...) {
+  @each $name in $names {
+    &__#{$name}{
+      @content;
+    }
+  }
+}
+
+@mixin m($names...) {
+  @each $name in $names {
+    &.is-#{$name}{
+      @content;
+    }
+  }
+}
+
+/*
+ * メディアクエリ
+ */
+
+@mixin mq {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin mq_m {
+  @media (min-width: $breakpoint_m) {
+    @content;
+  }
+}
+
+@mixin mq_mm {
+  @media (min-width: $breakpoint_mm) {
+    @content;
+  }
+}
+
+@mixin mq_l {
+  @media (min-width: $breakpoint_l) {
+    @content;
+  }
+}
+
+@mixin mq_ll {
+  @media (min-width: $breakpoint_ll) {
+    @content;
+  }
+}
+
+@mixin mq_max {
+  @media (min-width: $breakpoint_max) {
+    @content;
+  }
+}
+
+/*
+ * clearfix
+ */
+@mixin cf {
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}

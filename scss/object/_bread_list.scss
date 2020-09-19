@@ -1,0 +1,36 @@
+.o-bread_list {
+  @include m(lower){
+    margin-top: 54px;
+    padding-top: 20px;
+    display: flex;
+    @include mq_m{
+      margin-top: 80px;
+    }
+    @include mq_ll{
+      margin-top: 100px;
+    }
+    p{
+      font-size: 12px;
+      color: $c_black;
+      padding-right: 30px;
+      position: relative;
+      &:before{
+        content: "<";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 10px;
+        margin: auto;
+      }
+      a{
+        color: $c_black;
+      }
+    }
+    p:last-child{
+      padding-right: 0;
+      &:before{
+        content: "";
+      }
+    }
+  }
+}

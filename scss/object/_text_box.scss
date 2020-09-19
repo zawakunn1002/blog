@@ -1,0 +1,32 @@
+.o-text_box{
+    @include m(inquiry_description){
+        width: 100%;
+        margin: 40px auto;
+        padding: 0 6.25%;
+        @include mq{
+            margin: 70px auto;
+            padding: 0 2%;
+        }
+        @include mq_m{
+            margin: 70px auto 180px;
+        }
+        @include mq_mm{
+            padding: 0;
+        }
+        p{
+            color: #80581F;
+            font-size: 14px;
+            line-height: 32px;
+            margin-bottom: 30px;
+            @include mq{
+                font-size: 18px;
+                line-height: 36px;
+                margin-bottom: 50px;
+            }
+        }
+        p:last-child{
+            margin-bottom: 0;
+        }
+    }
+    
+}
