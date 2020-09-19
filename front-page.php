@@ -105,7 +105,6 @@
             <?php
               $terms = get_the_terms($post->ID, 'workstag');
               // 複数のカスタム分類を指定する場合は配列を使用する
-              // $terms = get_the_terms($post->ID, array('カスタム分類名1','カスタム分類名2'));
               if ( $terms ) {
                 foreach ( $terms as $term ) {
                   echo '<span>'.$term->name.'</span>';
