@@ -1,90 +1,72 @@
 .p-privacy{
-  @include m(main){
-    padding: 24px 0;
+  width: 100%;
+  &__content{
+    padding: 16px 2%;
+    border: solid 1px black;
     width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 24px;
     @include mq{
-      padding: 48px 0;
+      padding: 24px 2%;
     }
-    .main__content{
-      padding: 2%;
-      border: solid 1px black;
-      width: 100%;
-      height: 300px;
-      overflow-y: scroll;
-      &::-webkit-scrollbar {
-        width: 7px;
+    &::-webkit-scrollbar {
+      width: 7px;
+    }
+    /*スクロールバーの軌道*/
+    &::-webkit-scrollbar-track {
+      border-radius: 20px;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    }
+    /*スクロールバーの動く部分*/
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 50, .5);
+      border-radius: 20px;
+      box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
+    }
+    &__title{
+      margin-bottom: 32px;
+      letter-spacing: 0.1em;
+      font-size: 20px;
+      @include mq{
+        font-size: 24px;
       }
-      /*スクロールバーの軌道*/
-      &::-webkit-scrollbar-track {
-        border-radius: 20px;
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
-      }
-    
-      /*スクロールバーの動く部分*/
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 50, .5);
-        border-radius: 20px;
-        box-shadow:0 0 0 1px rgba(255, 255, 255, .3);
-      }
-      .title{
-        margin-bottom: 24px;
-        letter-spacing: 0.1em;
-        p{
-          line-height: 1.5;
-          font-size: 14px;
-          color: $c_black;
-          @include mq{
-            font-size: 16px;
-          }
-        }
-      }
-      .text{
-        margin-bottom: 24px;
-        p{
-          line-height: 1.5;
-          font-size: 14px;
-          color: $c_black;
-          margin-bottom: 16px;
-          letter-spacing: 0.1em;
-          @include mq{
-            font-size: 16px;
-          }
-          a{
-            color: $c_black;
-            text-decoration: underline;
-          }
-        }
-        ul{
-          li{
-            list-style: inside;
-            font-size: 14px;
-            color: $c_black;
-            line-height: 1.5;
-            padding-left:1.5em;
-            text-indent:-1.5em;
-            margin-bottom: 10px;
-            @include mq{
-              font-size: 16px;
-            }
-          }
-        }
-      }
-      h2{
-        font-size: 18px;
-        margin-bottom: 24px;
-        color: $c_black;
-        letter-spacing: 0.1em;
-        @include mq{
-          font-size: 24px;
-        }
-      }
-      h3{
+      @include m(sub){
         font-size: 16px;
-        margin-bottom: 24px;
-        color: $c_black;
-        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+        line-height: 1.5;
         @include mq{
           font-size: 18px;
+          line-height: 1;
+        }
+      }
+    }
+    &__text{
+      margin-bottom: 24px;
+      line-height: 1.5;
+      font-size: 14px;
+      color: $c_black;
+      letter-spacing: 0.1em;
+      @include mq{
+        font-size: 16px;
+      }
+      a{
+        color: $c_black;
+        text-decoration: underline;
+      }
+      ul{
+        margin-top: 8px;
+        li{
+          list-style: inside;
+          font-size: 14px;
+          color: $c_black;
+          line-height: 1.5;
+          padding-left:1.5em;
+          text-indent:-1.5em;
+          margin-bottom: 10px;
+          @include mq{
+            font-size: 16px;
+          }
         }
       }
     }

@@ -10,8 +10,18 @@
   }
   @include m(index){
     width: 100%;
-    img{
-      width: 100%;
+    background-image: url(../images/mv/index_sp.jpg);
+    height: calc(100vh - 54px);
+    background-position: center;
+    background-size: cover;
+    @include mq{
+      background-image: url(../images/mv/index_pc.jpg);
+    }
+    @include mq_m{
+      height: calc(100vh - 80px);
+    }
+    @include mq_ll{
+      height: calc(100vh - 100px);
     }
     .index__scroll{
       position: absolute;

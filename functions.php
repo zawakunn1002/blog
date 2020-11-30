@@ -43,7 +43,8 @@ function create_post_type(){
       //ダッシュボードに表示させる名前
       'label' => 'タグ', 
       'public' => true,
-      'show_ui' => true
+      'show_ui' => true,
+      
     )
   );
   

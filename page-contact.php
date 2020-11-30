@@ -1,5 +1,5 @@
 <?php 
-    //Template Name: プロフィールページ
+    //Template Name: 　お問い合わせ
     get_header();
 ?>
 
@@ -16,7 +16,7 @@
       <span class="font_yumin">CONTACT</span>
       <span>お問い合わせ</span>
     </h2>
-    <?php echo do_shortcode('[contact-form-7 id="39" title="お問い合わせ"]'); ?>
+    <?php echo do_shortcode('[mwform_formkey key="8"]'); ?>
   </div>
 </div>
 

@@ -123,4 +123,116 @@
       transform: rotate(45deg);
     }
   }
+  @include m(contact){
+    width: 90%;
+    max-width: 280px;
+    margin: 30px auto;
+    background-color: $c_white;
+    border: solid 1px $c_black;
+    color: $c_black;
+    font-size: 16px;
+    border-radius: 32px;
+    position: relative;
+    &:hover{
+      &:before{
+        -webkit-animation: animation 2s linear;
+        animation: animation 2s linear;
+        animation-name: anime2;
+        @-webkit-keyframes anime2 {
+          0% {
+            right: 20px;
+          }
+          25%{
+            right: 24px;
+          }
+          50% {
+            right: 20px;
+          }
+          75%{
+            right: 24px;
+          }
+          100% {
+            right: 20px;
+          }
+        }
+        @keyframes anime2 {
+          0% {
+            right: 20px;
+          }
+          25%{
+            right: 24px;
+          }
+          50% {
+            right: 20px;
+          }
+          75%{
+            right: 24px;
+          }
+          100% {
+            right: 20px;
+          }
+        }
+      }
+      &:after{
+        -webkit-animation: animation 2s linear;
+        animation: animation 2s linear;
+        animation-name: anime1;
+        @-webkit-keyframes anime1 {
+          0% {
+            right: 18px;
+          }
+          25% {
+            right: 22px;
+          }
+          50% {
+            right: 18px;
+          }
+          75% {
+            right: 22%;
+          }
+          100% {
+            right: 18px;
+          }
+        }
+        @keyframes anime1 {
+          0% {
+            right: 18px;
+          }
+          25% {
+            right: 22px;
+          }
+          50% {
+            right: 18px;
+          }
+          75% {
+            right: 22px;
+          }
+          100% {
+            right: 18px;
+          }
+        }
+      }
+    }
+    &:before{
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 1px;
+      background-color: $c_black;
+      bottom: 24px;
+      right: 20px;
+      
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 1px;
+      background-color: $c_black;
+      bottom: 28px;
+      right: 18px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
 }

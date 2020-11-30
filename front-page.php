@@ -4,8 +4,8 @@
 ?>
 
 <section class="o-mv is-index">
-  <img src="<?=get_template_directory_uri(); ?>/images/mv/index_pc.jpg" alt="mv" class="display_mq is-block">
-  <img src="<?=get_template_directory_uri(); ?>/images/mv/index_sp.jpg" alt="mv" class="display_to_mq">
+  <!-- <img src="<!?=get_template_directory_uri(); ?>/images/mv/index_pc.jpg" alt="mv" class="display_mq is-block">
+  <img src="<!?=get_template_directory_uri(); ?>/images/mv/index_sp.jpg" alt="mv" class="display_to_mq"> -->
   <a class="index__scroll" href="#about">
       scroll
   </a>
