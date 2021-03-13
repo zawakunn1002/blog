@@ -10,10 +10,10 @@
 
 <section class="p-profile is-main">
   <div class="innerBox">
-    <h2 class="o-title is-main">
+    <h1 class="o-title is-main">
       <span class="font_yumin">PROFILE</span>
       <span>プロフィール</span>
-    </h2>
+    </h1>
     <div class="profile__content">
       <div class="profile__content__right">
         <div class="right__content">

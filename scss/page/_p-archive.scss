@@ -1,0 +1,108 @@
+.p-archive{
+  width: 100%;
+  padding-bottom: 32px;
+  @include mq_m{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 48px;
+  }
+  @include e(sidebar){
+    width: 100%;
+    padding: 48px 0;
+    @include mq_m{
+      width: 20%;
+      padding: 96px 0 0;
+    }
+    &__search{
+      width: 100%;
+      margin-bottom: 16px;
+      @include mq{
+        margin-bottom: 32px;
+      }
+      form{
+        width: 100%;
+        input[type="text"]{
+          width: 100%;
+          display: block;
+          height: 32px;
+          border: solid 1px $c_black;
+          background-color: $c_white;
+          padding: 0 1em;
+          font-size: 16px;
+          font-family: 'Noto Serif JP', serif;
+          @include mq{
+            padding: 0 8px;
+          }
+        }
+        input[type="submit"]{
+          display: block;
+          width: 90px;
+          border: solid 1px $c_black;
+          margin: 8px 0 0 auto;
+          border-radius: 20px;
+          height: 24px;
+          background-color: $c_white;
+          @include mq{
+            margin: 16px 0 0 auto;
+          }
+          &:hover{
+            opacity: 0.7;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    &__category{
+      .cat-item{
+        font-size: 16px;
+        margin-bottom: 16px;
+        &::marker{
+          display: none;
+        }
+        a{
+          color: $c_black;
+          
+          &:hover{
+            border-bottom: solid 1px $c_black;
+            box-sizing: border-box;
+          }
+        }
+        .children{
+          font-size: 14px;
+          margin-top: 16px;
+          li{
+            position: relative;
+            padding-left: 1em;
+            
+            &:before{
+              content: "";
+              position:absolute;
+              top: 0;
+              bottom: 0;
+              left: 2px;
+              margin: auto;
+              width: 8px;
+              height: 1px;
+              background-color: #000;
+            }
+            &:after{
+              content: "";
+              position: absolute;
+              width: 1px;
+              height: 8px;
+              left: 1px;
+              top: 1px;
+              background-color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include e(main){
+    width: 100%;
+    @include mq_m{
+      width: 78%;
+    }
+  }
+}

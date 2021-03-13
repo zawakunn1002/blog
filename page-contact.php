@@ -12,10 +12,10 @@
 
 <div class="p-contact is-main">
   <div class="innerBox">
-    <h2 class="o-title is-main">
+    <h1 class="o-title is-main">
       <span class="font_yumin">CONTACT</span>
       <span>お問い合わせ</span>
-    </h2>
+    </h1>
     <?php echo do_shortcode('[mwform_formkey key="8"]'); ?>
   </div>
 </div>

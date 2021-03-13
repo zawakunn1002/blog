@@ -28,13 +28,13 @@
   </div>
 </section>
 
-<section class="p-index is-blog">
+<section class="p-index__blog">
   <div class="innerBox">
     <h2 class="o-title is-main">
       <span class="font_yumin">BLOG</span>
       <span>最新ブログ記事</span>
     </h2>
-    <div class="blog__content border-r-b">
+    <div class="p-index__blog__content border-r-b">
       <?php
         $args = array(
             'posts_per_page' => 6 // 表示件数の指定
@@ -45,20 +45,20 @@
         $category = get_the_category();
         $cat_name = $category[0]->cat_name;
       ?>
-      <div class="blog__content__detail">
-          <p class="image">
-            <a href="<?php the_permalink(); ?>">
-              <?php
-                if(has_post_thumbnail()):
-                  the_post_thumbnail();
-                else:
-              ?>
-              <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
-              <?php endif; ?>
-            </a>
-          </p>
-          <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-          <p class="category"><span><?php echo $cat_name; ?></span></p>
+      <div class="detail">
+        <p class="image">
+          <a href="<?php the_permalink(); ?>">
+            <?php
+              if(has_post_thumbnail()):
+                the_post_thumbnail();
+              else:
+            ?>
+            <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+            <?php endif; ?>
+          </a>
+        </p>
+        <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+        <p class="category"><span><?php echo $cat_name; ?></span></p>
       </div>
       <?php
           endforeach; // ループの終了
@@ -71,13 +71,13 @@
   </div>
 </section>
 
-<section class="p-index is-blog">
+<section class="p-index__blog">
   <div class="innerBox">
     <h2 class="o-title is-main">
       <span class="font_yumin">WORK</span>
       <span>作品　ポートフォリオ</span>
     </h2>
-    <div class="blog__content border-r-b">
+    <div class="p-index__blog__content border-r-b">
       <?php
         $works = array(
             'posts_per_page' => 6, // 表示件数の指定
@@ -88,30 +88,30 @@
         setup_postdata( $post ); // 記事データの取得
         
       ?>
-      <div class="blog__content__detail">
-          <p class="image">
-            <a href="<?php the_permalink(); ?>">
-              <?php
-                if(has_post_thumbnail()):
-                  the_post_thumbnail();
-                else:
-              ?>
-              <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
-              <?php endif; ?>
-            </a>
-          </p>
-          <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-          <p class="category">
+      <div class="detail">
+        <p class="image">
+          <a href="<?php the_permalink(); ?>">
             <?php
-              $terms = get_the_terms($post->ID, 'workstag');
-              // 複数のカスタム分類を指定する場合は配列を使用する
-              if ( $terms ) {
-                foreach ( $terms as $term ) {
-                  echo '<span>'.$term->name.'</span>';
-                }
-              }
+              if(has_post_thumbnail()):
+                the_post_thumbnail();
+              else:
             ?>
-          </p>
+            <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+            <?php endif; ?>
+          </a>
+        </p>
+        <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+        <p class="category">
+          <?php
+            $terms = get_the_terms($post->ID, 'workstag');
+            // 複数のカスタム分類を指定する場合は配列を使用する
+            if ( $terms ) {
+              foreach ( $terms as $term ) {
+                echo '<span>'.$term->name.'</span>';
+              }
+            }
+          ?>
+        </p>
       </div>
       <?php
           endforeach; // ループの終了

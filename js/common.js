@@ -22,17 +22,17 @@ $(function() {
 
 
   //ハンバーガーメニュー
-  $('.header__r__target').click(function(){
-      if($('.header__r__navi').hasClass(".header__block")) {
+  $('.header-r__target').click(function(){
+      if($('.header-r__navi').hasClass(".header__block")) {
 
-        $('.header__r__navi').fadeOut();
-        $('.header__r__navi').removeClass('.header__block');
+        $('.header-r__navi').fadeOut();
+        $('.header-r__navi').removeClass('.header__block');
         $('.line1').removeClass('active_line1');
         $('.line2').removeClass('active_line2');
         $('.line3').removeClass('active_line3');
     } else {
-        $('.header__r__navi').fadeIn();
-        $('.header__r__navi').addClass('.header__block');
+        $('.header-r__navi').fadeIn();
+        $('.header-r__navi').addClass('.header__block');
         $('.line1').addClass('active_line1');
         $('.line2').addClass('active_line2');
         $('.line3').addClass('active_line3');

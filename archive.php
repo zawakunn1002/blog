@@ -8,48 +8,73 @@
   <p>ブログ一覧</p>
 </section>
 
-<section class="p-index is-blog">
-  <div class="innerBox">
+
+<div class="innerBox p-archive">
+  <section class="p-index__blog p-archive__main">
     <h2 class="o-title is-main">
       <span class="font_yumin">BLOG</span>
       <span>最新ブログ記事</span>
     </h2>
-    <div class="blog__content border-r-b">
+    <div class="p-index__blog__content border-r-b">
       <?php
+        $paged = get_query_var('paged') ?: 1;
         $args = array(
-            'posts_per_page' => -1 // 表示件数の指定
+          'post_type' => "post",//投稿タイプ設定
+          'posts_per_page' => 1,// 取得記事数
+          'paged' => $paged,
         );
-        $posts = get_posts( $args );
-        foreach ( $posts as $post ): // ループの開始
-        setup_postdata( $post ); // 記事データの取得
-        $category = get_the_category();
-        $cat_name = $category[0]->cat_name;
+
+        $my_query = new WP_Query($args);
+        if ($my_query->have_posts()): while ( $my_query->have_posts() ) : $my_query->the_post();
       ?>
-      <div class="blog__content__detail">
-          <p class="image">
-            <a href="<?php the_permalink(); ?>">
-              <?php
-                if(has_post_thumbnail()):
-                  the_post_thumbnail();
-                else:
-              ?>
-              <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
-              <?php endif; ?>
-            </a>
-          </p>
-          <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-          <p class="category"><span><?php echo $cat_name; ?></span></p>
+      <div class="detail">
+        <p class="image">
+          <a href="<?php the_permalink(); ?>">
+            <?php
+              if(has_post_thumbnail()):
+                the_post_thumbnail();
+              else:
+            ?>
+            <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+            <?php endif; ?>
+          </a>
+        </p>
+        <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+        <p class="category">
+          <span> 
+          
+          <?php
+            $categories = get_the_category();
+            foreach( $categories as $category ){
+              // カテゴリーIDを取得
+              $cat_id = $category->term_id;
+              // 子孫タームのIDを配列で取得
+              $cat_child = get_term_children( $cat_id, 'category' );
+              // 子孫タームのIDがない場合
+              if( !$cat_child ){
+                echo $category->name;
+                break;
+              }
+            }
+          ?>
+          </span>
+        </p>
       </div>
-      <?php
-          endforeach; // ループの終了
-          wp_reset_postdata(); // 直前のクエリを復元する
-      ?>
+      <?php endwhile; ?>
+      <?php endif; ?>
     </div>
-    <a class="o-btn is-main" href="<?=home_url(); ?>">
-      ブログ一覧はこちら
-    </a>
-  </div>
-</section>
+
+    <?php
+    if ( function_exists( 'pagination' ) ) :
+      pagination( $my_query->max_num_pages, $paged );
+    endif;
+    ?>
+
+    <?php wp_reset_postdata(); ?>
+
+  </section>
+  <?php get_sidebar(); ?>
+</div>
 
 
 <?php get_footer(); ?>
