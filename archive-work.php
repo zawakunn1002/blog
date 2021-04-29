@@ -5,15 +5,15 @@
 
 <section class="o-bread_list is-lower innerBox">
   <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p>ブログ一覧</p>
+  <p>作品一覧</p>
 </section>
 
 
 <div class="innerBox p-archive">
   <section class="p-index__blog p-archive__main">
     <h2 class="o-title is-main">
-      <span class="font_yumin">BLOG</span>
-      <span>最新ブログ記事</span>
+      <span class="font_yumin">WORK</span>
+      <span>作品</span>
     </h2>
     <div class="p-index__blog__content border-r-b">
       <?php
@@ -41,23 +41,11 @@
         </p>
         <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
         <p class="category">
-          <span> 
-          
           <?php
-            $categories = get_the_category();
-            foreach( $categories as $category ){
-              // カテゴリーIDを取得
-              $cat_id = $category->term_id;
-              // 子孫タームのIDを配列で取得
-              $cat_child = get_term_children( $cat_id, 'category' );
-              // 子孫タームのIDがない場合
-              if( !$cat_child ){
-                echo $category->name;
-                break;
-              }
-            }
+          $terms = get_terms('workstag');
+          foreach ($terms as $term)
+          {echo '<span>'.($term->name).'</span>';}
           ?>
-          </span>
         </p>
       </div>
       <?php endwhile; ?>
@@ -73,7 +61,7 @@
     <?php wp_reset_postdata(); ?>
 
   </section>
-  <?php get_sidebar(); ?>
+  <?php get_sidebar(work); ?>
 </div>
 
 

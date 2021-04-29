@@ -7,8 +7,7 @@
     global $wp_query;
     $total_results = $wp_query->found_posts;
     $search_query = get_search_query();
-    $category = get_the_category();
-    $cat_name = $category[0]->cat_name;
+
 ?>
 
 
@@ -24,9 +23,9 @@
   <section class="p-index__blog p-archive__main">
     <h2 class="o-title is-main">
       <span class="font_yumin">BLOG</span>
-      <span><?php echo $search_query; ?></span>
+      <span><?php echo $search_query; ?>の検索結果</span>
     </h2>
-    <div class="blog__content border-r-b">
+    <div class="p-index__blog__content border-r-b">
     
     　
       <?php
@@ -40,7 +39,7 @@
       while(have_posts()): the_post();
       ?>
       
-      <div class="blog__content__detail">
+      <div class="detail">
         <p class="image">
           <a href="<?php the_permalink(); ?>">
             <?php

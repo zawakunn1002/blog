@@ -1,14 +1,13 @@
 <?php 
-    //Template Name: トップページ
+    //Template Name: タクソノミー 一覧
     get_header();
 ?>
 
 <section class="o-bread_list is-lower innerBox">
   <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p>ブログ一覧</p>
+  <p><a href="<?=home_url(); ?>/blog">ブログ一覧</a></p>
+  <p>カテゴリー</p>
 </section>
-
-
 
 <div class="innerBox p-archive">
   <section class="p-index__blog p-archive__main">
@@ -20,20 +19,17 @@
       <?php
       
         $paged = get_query_var('paged') ?: 1;
-        $cat = get_the_category();
-        $cat_name = $cat[0]->cat_name; // カテゴリー名
-        $cat_slug  = $cat[0]->category_nicename; // カテゴリースラッグ
-        $args = array(
-            'post_type' => 'post', //投稿を表示
-            'posts_per_page' => -1, //表示する件数
-            'category_name' => $cat_slug, 
-            'paged' => $paged,
+        $term = wp_get_object_terms($post->ID, 'blogcategory');
+        $args = array( 
+            'post_type' => 'blog',
+            'taxonomy' => 'blogcategory',
+            'term' => $term[0]->name,
+            'posts_per_page' => -1,
         );
-        $my_query = new WP_Query( $args );
-        if ( $my_query->have_posts() ) :
+        $custom_query = new WP_Query( $args );
+        if ( $custom_query->have_posts() ) :
         ?>
-        <?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-        <!-- <?php echo $cat_name?> -->
+        <?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
         <div class="detail">
           <p class="image">
             <a href="<?php the_permalink(); ?>">
@@ -47,7 +43,21 @@
             </a>
           </p>
           <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-          <p class="category"><span><?php echo $cat_name?></span></p>
+          <p class="category">
+            <span>
+              
+              <?php
+                $terms = get_the_terms( $post ->ID, 'blogcategory' );
+                foreach( $terms as $term ) {
+                  if($term->parent){
+                    echo $term->name;
+                  } else if(0 == $term->parent){
+                    echo $term->name;
+                  }
+                }
+              ?>
+            </span>
+          </p>
         </div>
       <?php endwhile; ?>
       <?php wp_reset_postdata(); ?>
@@ -58,7 +68,7 @@
 
     <?php
     if ( function_exists( 'pagination' ) ) :
-      pagination( $my_query->max_num_pages, $paged );
+      pagination( $custom_query->max_num_pages, $paged );
     endif;
     ?>
 

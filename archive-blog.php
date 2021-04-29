@@ -19,8 +19,8 @@
       <?php
         $paged = get_query_var('paged') ?: 1;
         $args = array(
-          'post_type' => "post",//投稿タイプ設定
-          'posts_per_page' => 1,// 取得記事数
+          'post_type' => "blog",//投稿タイプ設定
+          'posts_per_page' => -1,// 取得記事数
           'paged' => $paged,
         );
 
@@ -41,22 +41,19 @@
         </p>
         <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
         <p class="category">
-          <span> 
-          
-          <?php
-            $categories = get_the_category();
-            foreach( $categories as $category ){
-              // カテゴリーIDを取得
-              $cat_id = $category->term_id;
-              // 子孫タームのIDを配列で取得
-              $cat_child = get_term_children( $cat_id, 'category' );
-              // 子孫タームのIDがない場合
-              if( !$cat_child ){
-                echo $category->name;
-                break;
+          <span>
+            <?php
+              $terms = get_the_terms( $post ->ID, 'blogcategory' );
+              foreach( $terms as $term ) {
+                if($term->parent){
+                  echo $term->name;
+                } else if(0 == $term->parent && !$term->parent){
+                  echo 'test';
+                } else {
+                  
+                }
               }
-            }
-          ?>
+            ?>
           </span>
         </p>
       </div>

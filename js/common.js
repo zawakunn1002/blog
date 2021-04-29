@@ -56,14 +56,4 @@ $(function() {
 
    //　profile slick ここまで
 
-   // flex-box 最後の要素左寄せ
-
-
-  $(window).on('load resize', function(){
-    $('.blog__content__detail').each(function(index,element){
-      var w = $(element).width()
-      $('.blog__content').append('<div style="height:0; width:'+ w +'px; margin:0;"></div>')
-    })
-  });
-
 });

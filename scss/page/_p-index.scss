@@ -93,9 +93,11 @@
         p:last-child{
           span{
             background-color: $c_grey;
-            padding: 3px 5px;
+            padding: 0px 5px;
             color: $c_white;
             font-size: 0.75rem;
+            display: inline-block;
+            margin-right: 4px;
             @include mq_m{
               font-size: 0.875rem;
             }

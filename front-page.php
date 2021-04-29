@@ -36,14 +36,14 @@
     </h2>
     <div class="p-index__blog__content border-r-b">
       <?php
-        $args = array(
-            'posts_per_page' => 6 // 表示件数の指定
+        $works = array(
+            'posts_per_page' => 6, // 表示件数の指定
+            'post_type' => 'blog' 
         );
-        $posts = get_posts( $args );
+        $posts = get_posts( $works );
         foreach ( $posts as $post ): // ループの開始
         setup_postdata( $post ); // 記事データの取得
-        $category = get_the_category();
-        $cat_name = $category[0]->cat_name;
+        
       ?>
       <div class="detail">
         <p class="image">
@@ -81,7 +81,7 @@
       <?php
         $works = array(
             'posts_per_page' => 6, // 表示件数の指定
-            'post_type' => 'works' 
+            'post_type' => 'work' 
         );
         $posts = get_posts( $works );
         foreach ( $posts as $post ): // ループの開始
@@ -118,7 +118,7 @@
           wp_reset_postdata(); // 直前のクエリを復元する
       ?>
     </div>
-    <a class="o-btn is-main" href="<?=home_url(); ?>">
+    <a class="o-btn is-main" href="<?=home_url(); ?>/work">
       作品一覧はこちら
     </a>
   </div>

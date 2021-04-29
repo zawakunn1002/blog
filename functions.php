@@ -4,25 +4,6 @@ add_filter('show_admin_bar', '__return_false');
 
 add_theme_support( 'post-thumbnails' ); 
 
-function post_has_archive( $args, $post_type ) {
- 
-  if ( 'post' == $post_type ) {
-      $args['rewrite'] = true;
-      $args['has_archive'] = 'blog'; //任意のスラッグ名
-  }
-  return $args;
-
-}
-add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
-
-
-function SearchFilter( $query ) {
-	if ( $query -> is_search ) {
-		$query -> set( 'post_type', 'post' );
-	}
-	return $query;
-}
-add_filter( 'pre_get_posts', 'SearchFilter' );
 
 function create_post_type(){
   //カスタム投稿タイプがダッシュボードの編集画面で使用する項目を配列で用意
@@ -30,10 +11,19 @@ function create_post_type(){
     'title',
     'editor',
     'thumbnail',
-    'revisions'
+    'revisions',
   );
   //カスタム投稿タイプを追加するための関数
   //第一引数は任意のカスタム投稿タイプ名
+  register_post_type('blog',
+    array(
+      'label' => 'blog',
+      'public' => true,
+      'has_archive' => true,
+      'menu_position' => 10,
+      'supports' => $supports
+    )
+  );
   register_post_type('work',
     array(
       'label' => 'work',
@@ -56,16 +46,60 @@ function create_post_type(){
       
     )
   );
+  register_taxonomy(
+    'blogcategory', //カテゴリー名（任意）
+    'blog', //カスタム投稿名
+    array(
+      'hierarchical' => true, //タグタイプの指定（階層をもつ）
+      'update_count_callback' => '_update_post_term_count',
+      //ダッシュボードに表示させる名前
+      'label' => 'カテゴリー', 
+      'public' => true,
+      'show_ui' => true,
+      'exclude_from_search' => true,
+    )
+  );
   
 }
 add_action('init','create_post_type');
+
+
+
+// 固定カスタムフィールドボックス
+function add_work_fields() {
+  //add_meta_box(表示される入力ボックスのHTMLのID, ラベル, 表示する内容を作成する関数名, 投稿タイプ, 表示方法)
+  //第4引数のpostをpageに変更すれば固定ページにオリジナルカスタムフィールドが表示されます(custom_post_typeのslugを指定することも可能)。
+  //第5引数はnormalの他にsideとadvancedがあります。
+  add_meta_box( 'work_setting', '作品URL', 'insert_work_fields', 'work', 'normal');
+}
+add_action('admin_menu', 'add_work_fields');
+
+// カスタムフィールドの入力エリア
+function insert_work_fields() {
+  global $post;
+
+  //下記に管理画面に表示される入力エリアを作ります。「get_post_meta()」は現在入力されている値を表示するための記述です。
+  echo '<span style="display: block; margin-bottom: 8px;">作品URL： </span><input type="url" name="work_url" value="'.get_post_meta($post->ID, 'item_url', true).'" style="display: block; width: 100%; margin-bottom: 8px;" />　<br>';
+  
+}
+
+// カスタムフィールドの値を保存
+function save_work_fields( $post_id ) {
+
+  if(!empty($_POST['work_url'])){
+    update_post_meta($post_id, 'work_url', $_POST['work_url'] );
+  }else{
+    delete_post_meta($post_id, 'wprk_url');
+  }
+}
+add_action('save_post', 'save_work_fields');
 
 /**
  * ページネーション
  * 
  */
 
-function pagination( $pages, $paged, $range = 2 ) {
+function pagination( $pages, $paged, $range = 1 ) {
 
   $pages = ( int ) $pages;
   $paged = $paged ?: 1;
@@ -108,5 +142,18 @@ function twpp_change_posts_per_page( $query ) {
   }
 }
 add_action( 'pre_get_posts', 'twpp_change_posts_per_page' );
+
+//カスタム投稿の検索機能追加
+add_filter('template_include','custom_search_template');
+function custom_search_template($template){
+  if ( is_search() ){
+    $post_types = get_query_var('post_type');
+    foreach ( (array) $post_types as $post_type )
+      $templates[] = "search-{$post_type}.php";
+    $templates[] = 'search.php';
+    $template = get_query_template('search',$templates);
+  }
+  return $template;
+}
 
 ?>
