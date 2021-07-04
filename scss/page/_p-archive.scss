@@ -105,6 +105,23 @@
         }
       }
     }
+    &__tag{
+      li{
+        border: solid 1px $c_black;
+        display: inline-block;
+        padding: 6px;
+        margin-right: 4px;
+        margin-bottom: 8px;
+        &:hover{
+          a{
+            text-decoration: underline;
+          }
+        }
+        a{
+          color: $c_black;
+        }
+      }
+    }
   }
   @include e(main){
     width: 100%;

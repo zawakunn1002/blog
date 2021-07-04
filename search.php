@@ -1,5 +1,5 @@
 <?php 
-    //Template Name: トップページ
+    //Template Name: blog検索
     get_header();
 ?>
 
@@ -14,6 +14,7 @@
 <section class="o-bread_list is-lower innerBox">
   <p><a href="<?=home_url(); ?>">トップ</a></p>
   <p><a href="<?=home_url(); ?>/blog">ブログ一覧</a></p>
+  <p><?php echo $search_query; ?></p>
 </section>
 
       
@@ -26,8 +27,6 @@
       <span><?php echo $search_query; ?>の検索結果</span>
     </h2>
     <div class="p-index__blog__content border-r-b">
-    
-    　
       <?php
       if ( empty( get_search_query() ) ) :
         // 検索キーワードがないとき
@@ -52,7 +51,14 @@
           </a>
         </p>
         <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-        <p class="category"><span><?php echo $cat_name; ?></span></p>
+        <p class="category">
+          <span>
+            <?php
+              $terms = get_the_terms( $post ->ID, 'blogcategory' );
+                echo $terms[0]->name;
+            ?>
+          </span>
+        </p>
       </div>
       
       <?php endwhile; endif; else: ?>
@@ -65,7 +71,7 @@
       
       
     </div>
-    <a class="o-btn is-main" href="<?=home_url(); ?>">
+    <a class="o-btn is-main" href="<?=home_url(); ?>/blog">
       ブログ一覧に戻る
     </a>
   </section>

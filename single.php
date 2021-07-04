@@ -9,15 +9,11 @@
   <p><?php the_title(); ?></p>
 </section>
 
-<article class="p-archive">
-
-</article>
-
-<section class="o-box is-single">
+<section class="p-single">
   <div class="innerBox">
     <?php if(have_posts()): while(have_posts()):the_post(); ?>
     <h2 class="o-title is-single center bold"><?php the_title(); ?></h2>
-    <p class="single__post__day right">
+    <p class="p-single__day right">
       投稿日：<?php echo get_the_date('Y/n/j'); ?>
     </p>
     <div class="single__content">

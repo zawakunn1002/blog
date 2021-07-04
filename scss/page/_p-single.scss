@@ -1,0 +1,76 @@
+.p-single{
+  width: 100%;
+  margin: 32px 0;
+  @include mq{
+    margin: 64px 0;
+  }
+  &__day{
+  }
+  &__content{
+    width: 100%;
+    @include m(work){
+      @include mq{
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    &__image{
+      border: solid 1px $c_black;
+      margin-bottom: 24px;
+      overflow: hidden;
+      @include mq{
+        width: 40%;
+        margin-bottom: 0;
+      }
+      img{
+        transition:0.5s all;
+      }
+      &:hover{
+        img{
+          transform:scale(1.05,1.05);
+        }
+      }
+    }
+    &__text{
+      width: 100%;
+      font-size: 16px;
+      @include mq{
+        width: 55%;
+      }
+      @include mq_m{
+        width: 50%;
+      }
+      .title{
+        font-size: 18px;
+        margin-bottom: 16px;
+        line-height: 1.5;
+        @include mq{
+          font-size: 20px;
+          line-height: 1;
+        }
+        @include mq_m{
+          font-size: 24px;
+        }
+      }
+      .day{
+        margin-bottom: 16px;
+        font-size: 14px;
+        color: $c_black;
+        letter-spacing: 0.075em;
+        @include mq{
+          margin-bottom: 24px;
+          font-size: 16px;
+        }
+      }
+      .detail{
+        p{
+          line-height: 2;
+          font-size: 14px;
+          @include mq{
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

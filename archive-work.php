@@ -20,7 +20,7 @@
         $paged = get_query_var('paged') ?: 1;
         $args = array(
           'post_type' => "work",//投稿タイプ設定
-          'posts_per_page' => 1,// 取得記事数
+          'posts_per_page' => 9,// 取得記事数
           'paged' => $paged,
         );
 
@@ -41,11 +41,13 @@
         </p>
         <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
         <p class="category">
-          <?php
-          $terms = get_terms('workstag');
-          foreach ($terms as $term)
-          {echo '<span>'.($term->name).'</span>';}
-          ?>
+            <?php
+              $terms = get_the_terms( $post ->ID, 'workstag' );
+              $length = count($terms);
+              for ($i = 0; $i <= $length - 1; $i++){
+                echo '<span>'.$terms[$i]->name.'</span>';
+              }
+            ?>
         </p>
       </div>
       <?php endwhile; ?>

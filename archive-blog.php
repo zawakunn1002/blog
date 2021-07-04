@@ -5,11 +5,11 @@
 
 <section class="o-bread_list is-lower innerBox">
   <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p>ブログ一覧</p>
+  <p><a href="<?=home_url(); ?>/blog">ブログ一覧</a></p>
 </section>
 
 
-<div class="innerBox p-archive">
+<div class="innerBox p-archive p-index">
   <section class="p-index__blog p-archive__main">
     <h2 class="o-title is-main">
       <span class="font_yumin">BLOG</span>
@@ -20,7 +20,7 @@
         $paged = get_query_var('paged') ?: 1;
         $args = array(
           'post_type' => "blog",//投稿タイプ設定
-          'posts_per_page' => -1,// 取得記事数
+          'posts_per_page' => 9,// 取得記事数
           'paged' => $paged,
         );
 
@@ -44,15 +44,7 @@
           <span>
             <?php
               $terms = get_the_terms( $post ->ID, 'blogcategory' );
-              foreach( $terms as $term ) {
-                if($term->parent){
-                  echo $term->name;
-                } else if(0 == $term->parent && !$term->parent){
-                  echo 'test';
-                } else {
-                  
-                }
-              }
+                echo $terms[0]->name;
             ?>
           </span>
         </p>

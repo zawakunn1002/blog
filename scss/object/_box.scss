@@ -1,21 +1,4 @@
 .o-box {
-  @include m(single){
-    width: 100%;
-    margin: 32px 0;
-    @include mq{
-      margin: 64px 0;
-    }
-    .single__post__day{
-      margin-bottom: 16px;
-      font-size: 14px;
-      color: $c_black;
-      letter-spacing: 0.075em;
-      @include mq{
-        margin-bottom: 24px;
-        font-size: 16px;
-      }
-    }
-  }
   @include m(error){
     width: 100%;
     margin-top: 54px;

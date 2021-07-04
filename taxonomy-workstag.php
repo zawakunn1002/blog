@@ -1,30 +1,30 @@
 <?php 
-    //Template Name: タクソノミー 一覧(ブログ)
+    //Template Name: タクソノミー 一覧(作品)
     get_header();
 ?>
 
 <section class="o-bread_list is-lower innerBox">
   <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p><a href="<?=home_url(); ?>/blog">ブログ一覧</a></p>
+  <p><a href="<?=home_url(); ?>/work">作品一覧</a></p>
   <p><?php single_term_title(); ?></p>
 </section>
 
 <div class="innerBox p-archive">
   <section class="p-index__blog p-archive__main">
     <h2 class="o-title is-main">
-      <span class="font_yumin">BLOG</span>
-      <span><?php single_term_title('カテゴリー : '); ?></span>
+      <span class="font_yumin">WORK</span>
+      <span><?php single_term_title('タグ : '); ?></span>
     </h2>
     <div class="p-index__blog__content border-r-b">
       <?php
       
-      $type = get_query_var( 'blogcategory' );
+      $type = get_query_var( 'workstag' );
       $args = array(
-          'post_type' => array('blog'), 
+          'post_type' => array('work'), 
           'tax_query' => array(
 
               array(
-                  'taxonomy' => 'blogcategory', 
+                  'taxonomy' => 'workstag', 
                   'field' => 'slug',
                   'terms' => $type,
               ),
@@ -49,12 +49,13 @@
           </p>
           <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
           <p class="category">
-            <span>
-              <?php
-                $terms = get_the_terms( $post ->ID, 'blogcategory' );
-                echo $terms[0]->name;
-              ?>
-            </span>
+            <?php
+              $terms = get_the_terms( $post ->ID, 'workstag' );
+              $length = count($terms);
+              for ($i = 0; $i <= $length - 1; $i++){
+                echo '<span>'.$terms[$i]->name.'</span>';
+              }
+            ?>
           </p>
         </div>
       <?php endwhile; ?>
@@ -70,12 +71,12 @@
     endif;
     ?>
 
-    <a class="o-btn is-main" href="<?=home_url(); ?>/blog">
-      ブログ一覧に戻る
+    <a class="o-btn is-main" href="<?=home_url(); ?>/work">
+      作品一覧に戻る
     </a>
 
   </section>
-  <?php get_sidebar(); ?>
+  <?php get_sidebar(work); ?>
 </div>
 
 

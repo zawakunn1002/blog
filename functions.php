@@ -21,6 +21,7 @@ function create_post_type(){
       'public' => true,
       'has_archive' => true,
       'menu_position' => 10,
+      'show_in_rest' => true,
       'supports' => $supports
     )
   );
@@ -99,7 +100,7 @@ add_action('save_post', 'save_work_fields');
  * 
  */
 
-function pagination( $pages, $paged, $range = 1 ) {
+function pagination( $pages, $paged, $range = 2 ) {
 
   $pages = ( int ) $pages;
   $paged = $paged ?: 1;
@@ -109,25 +110,25 @@ function pagination( $pages, $paged, $range = 1 ) {
 
   if ( 1 !== $pages ) {
     //２ページ以上の時
-    echo '<div class="Pagination">';
+    echo '<div class="o-pagenation center">';
     if ( $paged > 1 ) {
       // 「‹」１ページ前へ戻るリンクを表示
-      echo '<a href="', get_pagenum_link( $paged - 1 ) ,'" class="Pagination-Item">', $text_before ,'</a>';
+      echo '<a href="', get_pagenum_link( $paged - 1 ) ,'" class="o-pagenation__link">', $text_before ,'</a>';
     }
     for ( $i = 1; $i <= $pages; $i++ ) {
 
       if ( $i <= $paged + $range && $i >= $paged - $range ) {
         if ( $paged === $i ) {
-          echo '<span class="Pagination-Item isActive">', $i ,'</span>'; // 現在のページの数字
+          echo '<span class="o-pagenation__current">', $i ,'</span>'; // 現在のページの数字
         } else {
-          echo '<a href="', get_pagenum_link( $i ) ,'" class="Pagination-Item">', $i ,'</a>';
+          echo '<a href="', get_pagenum_link( $i ) ,'" class="o-pagenation__link">', $i ,'</a>';
         }
       }
 
     }
     if ( $paged < $pages ) {
       // 「›」１ページ後へ進むリンクを表示
-      echo '<a href="', get_pagenum_link( $paged + 1 ) ,'" class="Pagination-Item">' ,$text_next ,'</a>';
+      echo '<a href="', get_pagenum_link( $paged + 1 ) ,'" class="o-pagenation__link">' ,$text_next ,'</a>';
     }
     echo '</div>';
   }

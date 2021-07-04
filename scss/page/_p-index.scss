@@ -1,5 +1,5 @@
 .p-index{
-  @include m(about){
+  &__about{
     padding: 48px 0 0;
     @include mq{
       padding: 80px 0 0; 
@@ -7,7 +7,7 @@
     @include mq_mm{
       padding: 96px 0 0;
     }
-    .about__content{
+    &__content{
       padding: 24px 2% 48px;
       width: 100%;
       p{
@@ -34,7 +34,7 @@
       }
     }
   }
-  @include e(blog){
+  &__blog{
     padding: 48px 0 0;
     width: 100%;
     @include m(lower){
@@ -76,7 +76,6 @@
             
             &:hover{
               transform:scale(1.1,1.1);
-              transition:0.5s all;
             }
           }
         }

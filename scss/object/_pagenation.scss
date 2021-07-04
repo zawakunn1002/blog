@@ -1,0 +1,38 @@
+.o-pagenation{
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  &__link{
+    display: flex;
+    color: $c_black;
+    border: solid 1px $c_black;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0 8px;
+    @include mq{
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+    }
+  }
+  &__current{
+    display: flex;
+    color: $c_white;
+    background-color: $c_black;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0 8px;
+    font-weight: bold;
+    @include mq{
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+    }
+  }
+}
