@@ -10,7 +10,6 @@
 </article>
 
 
-
 <div class="p-index">
   <section class="p-index__about" id="about">
     <div class="innerBox">
@@ -52,12 +51,22 @@
                   the_post_thumbnail();
                 else:
               ?>
-              <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+              <picture>
+                <source type="image/webp" srcset="<?= get_template_directory_uri(); ?>/images/index/no-image.webp">
+                <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+              </picture>
               <?php endif; ?>
             </a>
           </p>
           <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-          <p class="category"><span><?php echo $cat_name; ?></span></p>
+          <p class="category">
+            <span>
+              <?php
+                $terms = get_the_terms( $post ->ID, 'blogcategory' );
+                  echo $terms[0]->name;
+              ?>
+            </span>
+          </p>
         </div>
         <?php
             endforeach; // ループの終了
@@ -95,7 +104,10 @@
                   the_post_thumbnail();
                 else:
               ?>
-              <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+              <picture>
+                <source type="image/webp" srcset="<?= get_template_directory_uri(); ?>/images/index/no-image.webp">
+                <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+              </picture>
               <?php endif; ?>
             </a>
           </p>

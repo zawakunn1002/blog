@@ -63,7 +63,7 @@
     </ul>
   </nav>
 
-  <div class="main">
+  <main class="main">
 
 
 

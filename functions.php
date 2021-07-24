@@ -71,7 +71,7 @@ function add_work_fields() {
   //add_meta_box(表示される入力ボックスのHTMLのID, ラベル, 表示する内容を作成する関数名, 投稿タイプ, 表示方法)
   //第4引数のpostをpageに変更すれば固定ページにオリジナルカスタムフィールドが表示されます(custom_post_typeのslugを指定することも可能)。
   //第5引数はnormalの他にsideとadvancedがあります。
-  add_meta_box( 'work_setting', '作品URL', 'insert_work_fields', 'work', 'normal');
+  add_meta_box( 'work_setting', '必須事項', 'insert_work_fields', 'work', 'normal');
 }
 add_action('admin_menu', 'add_work_fields');
 
@@ -80,7 +80,7 @@ function insert_work_fields() {
   global $post;
 
   //下記に管理画面に表示される入力エリアを作ります。「get_post_meta()」は現在入力されている値を表示するための記述です。
-  echo '<span style="display: block; margin-bottom: 8px;">作品URL： </span><input type="url" name="work_url" value="'.get_post_meta($post->ID, 'item_url', true).'" style="display: block; width: 100%; margin-bottom: 8px;" />　<br>';
+  echo '<span style="display: block; margin-bottom: 8px;">作品URL： </span><input type="url" name="work_url" value="'.get_post_meta($post->ID, 'work_url', true).'" style="display: block; width: 100%; margin-bottom: 8px;" />　<br>';
   
 }
 
@@ -90,7 +90,7 @@ function save_work_fields( $post_id ) {
   if(!empty($_POST['work_url'])){
     update_post_meta($post_id, 'work_url', $_POST['work_url'] );
   }else{
-    delete_post_meta($post_id, 'wprk_url');
+    delete_post_meta($post_id, 'work_url');
   }
 }
 add_action('save_post', 'save_work_fields');
@@ -156,5 +156,30 @@ function custom_search_template($template){
   }
   return $template;
 }
+
+//* WebP File Upload
+function add_file_types_to_uploads( $mimes ) {
+  $mimes['webp'] = 'image/webp';
+  return $mimes;
+}
+add_filter( 'upload_mimes', 'add_file_types_to_uploads' );
+
+//* WebP image thumbnail display on media　Library
+function webp_is_displayable($result, $path) {
+  if ($result === false) {
+      $displayable_image_types = array( IMAGETYPE_WEBP );
+      $info = @getimagesize( $path );
+
+      if (empty($info)) {
+          $result = false;
+      } elseif (!in_array($info[2], $displayable_image_types)) {
+          $result = false;
+      } else {
+          $result = true;
+      }
+  }
+  return $result;
+}
+add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
 ?>

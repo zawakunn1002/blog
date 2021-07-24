@@ -20,7 +20,10 @@
               the_post_thumbnail();
             else:
           ?>
-          <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+          <picture>
+            <source type="image/webp" srcset="<?= get_template_directory_uri(); ?>/images/index/no-image.webp">
+            <img src="<?= get_template_directory_uri(); ?>/images/index/no-image.png" alt="no-image" />
+          </picture>
           <?php endif; ?>
         </a>
       </div>
