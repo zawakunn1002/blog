@@ -55,6 +55,7 @@
     }
     &__right{
       width: 100%;
+      word-break: break-all;
       @include mq_m{
         width: 75%;
       }
@@ -64,11 +65,8 @@
         border: solid 1px $c_grey;
         height: 50px;
         padding: 0 1em;
-        font-size: 14px;
+        font-size: 16px;
         font-family: 'Noto Serif JP', serif;
-        @include mq{
-          font-size: 16px;
-        }
       }
       textarea{
         width: 100%;
@@ -76,12 +74,9 @@
         background-color: $c_white;
         border: solid 1px $c_grey;
         padding: 10px 1em;
-        font-size: 14px;
+        font-size: 16px;
         font-family: 'Noto Serif JP', serif;
         max-width: 100%;
-        @include mq{
-          font-size: 16px;
-        }
       }
       label{
         display: block;

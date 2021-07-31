@@ -79,7 +79,7 @@
     </a>
 
   </section>
-  <?php get_sidebar(work); ?>
+  <?php get_sidebar('work'); ?>
 </div>
 
 

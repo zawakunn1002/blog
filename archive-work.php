@@ -13,7 +13,7 @@
   <section class="p-index__blog p-archive__main">
     <h2 class="o-title is-main">
       <span class="font_yumin">WORK</span>
-      <span>作品</span>
+      <span>作成物</span>
     </h2>
     <div class="p-index__blog__content border-r-b">
       <?php

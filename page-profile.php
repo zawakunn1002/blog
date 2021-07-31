@@ -68,11 +68,11 @@
       <div class="profile__content__left" id="profile__slick">
         <picture>
           <source type="image/webp" srcset="<?=get_template_directory_uri(); ?>/images/profile/profile.webp">
-          <img src="<?=get_template_directory_uri(); ?>/images/profile/profile.jpg" alt="profile">
+          <img src="<?=get_template_directory_uri(); ?>/images/profile/profile.jpg" alt="profile1">
         </picture>
         <picture>
           <source type="image/webp" srcset="<?=get_template_directory_uri(); ?>/images/profile/profile2.webp">
-          <img src="<?=get_template_directory_uri(); ?>/images/profile/profile2.jpg" alt="profile">
+          <img src="<?=get_template_directory_uri(); ?>/images/profile/profile2.jpg" alt="profile2">
         </picture>
       </div>
     </div>

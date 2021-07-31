@@ -27,7 +27,7 @@
         <li class="center"><a href="<?=home_url(); ?>">トップ</a></li>
         <li class="center"><a href="<?=home_url(); ?>/profile">プロフィール</a></li>
         <li class="center"><a href="<?=home_url(); ?>/blog">ブログ一覧</a></li>
-        <li class="center"><a href="<?=home_url(); ?>">作品</a></li>
+        <li class="center"><a href="<?=home_url(); ?>/work">作品</a></li>
         <li class="center"><a href="<?=home_url(); ?>/contact">お問い合わせ</a></li>
         <li class="center"><a href="<?=home_url(); ?>/contact#privacy">プライバシーポリシー</a></li>
       </ul>

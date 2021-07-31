@@ -1,9 +1,9 @@
-<aside class="p-archive__sidebar">
+<aside class="o-sidebar">
   <h2 class="o-title is-side">
     <span class="font_yumin">TAG</span>
     <span>タグ</span>
   </h2>
-  <ul class="p-archive__sidebar__tag">
+  <ul class="o-sidebar__tag">
   <?php
     $category = 'workstag';
     // $terms = get_terms('blogcategory');
