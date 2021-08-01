@@ -9,6 +9,15 @@
   <script src="<?=get_template_directory_uri(); ?>/js/jquery-3.5.1.min.js"></script>
   <script src="<?=get_template_directory_uri(); ?>/js/slick.min.js"></script>
   <? wp_head(); ?>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141585447-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-141585447-1');
+  </script>
 </head>
 <body>
   <header class="header-r">

@@ -36,7 +36,7 @@
       $paged = get_query_var('paged') ?: 1;
       $args = array(
         'post_type' => "blog",//投稿タイプ設定
-        'posts_per_page' => 8,// 取得記事数
+        'posts_per_page' => 6,// 取得記事数
         'paged' => $paged,
       );
 
