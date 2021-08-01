@@ -3,10 +3,10 @@
     get_header();
 ?>
 
-<section class="o-bread_list is-lower innerBox">
-  <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p>作品一覧</p>
-</section>
+<ul class="o-bread_list is-lower innerBox">
+  <li><a href="<?=home_url(); ?>">トップ</a></li>
+  <li>作品一覧</li>
+</ul>
 
 
 <div class="innerBox p-archive">

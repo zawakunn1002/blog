@@ -2,11 +2,16 @@
   @include m(lower){
     padding-top: 20px;
     display: flex;
-    p{
-      font-size: 12px;
+    flex-wrap: wrap;
+    li{
+      font-size: 10px;
       color: $c_black;
       padding-right: 30px;
       position: relative;
+      line-height: 1.5;
+      @include mq{
+        font-size: 12px;
+      }
       &:before{
         content: "<";
         position: absolute;
@@ -19,7 +24,7 @@
         color: $c_black;
       }
     }
-    p:last-child{
+    li:last-child{
       padding-right: 0;
       &:before{
         content: "";

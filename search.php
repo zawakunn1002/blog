@@ -11,11 +11,11 @@
 ?>
 
 
-<section class="o-bread_list is-lower innerBox">
-  <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p><a href="<?=home_url(); ?>/blog">ブログ一覧</a></p>
-  <p><?php echo $search_query; ?></p>
-</section>
+<ul class="o-bread_list is-lower innerBox">
+  <li><a href="<?=home_url(); ?>">トップ</a></li>
+  <li><a href="<?=home_url(); ?>/blog">ブログ一覧</a></li>
+  <li><?php echo $search_query; ?></li>
+</ul>
 
       
 

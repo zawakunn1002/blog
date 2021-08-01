@@ -3,10 +3,10 @@
     get_header();
 ?>
 
-<section class="o-bread_list is-lower innerBox">
-  <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p>お問い合わせ</p>
-</section>
+<ul class="o-bread_list is-lower innerBox">
+  <li><a href="<?=home_url(); ?>">トップ</a></li>
+  <li>お問い合わせ</li>
+</ul>
 
 
 

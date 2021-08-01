@@ -12,7 +12,7 @@
 </head>
 <body>
   <header class="header-r">
-    <?php if ( is_home() || is_front_page() ) : ?>
+    <?php if (is_front_page() || is_home() && is_my_mobile() == 'sp'): ?>
     <h1 class="center font_yumin header-r__title"><a href="<?=home_url(); ?>">。ザワくんブログ</a></h1>
     <?php else : ?>
     <p class="center font_yumin header-r__title"><a href="<?=home_url(); ?>">。ザワくんブログ</a></p>
@@ -40,7 +40,7 @@
 
   <header class="header">
     <div class="innerBox relative__wrap">
-      <?php if ( is_home() || is_front_page() ) : ?>
+      <?php if (is_front_page() || is_home() && is_my_mobile() == 'pc'): ?>
       <h1 class="center font_yumin header__title"><a href="<?=home_url(); ?>">。ザワくんブログ</a></h1>
       <?php else : ?>
       <p class="center font_yumin header__title"><a href="<?=home_url(); ?>">。ザワくんブログ</a></p>

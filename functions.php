@@ -182,4 +182,17 @@ function webp_is_displayable($result, $path) {
 }
 add_filter('file_is_displayable_image', 'webp_is_displayable', 10, 2);
 
+
+function is_my_mobile()
+{
+ $size = $_SESSION[windowSize];
+ if($size == 0)
+  {
+  if(is_mobile()){return 'sp';}
+  else{return 'pc';}
+  }
+ elseif($size <= 1023){return 'sp';}
+ else{return 'pc';}
+}
+
 ?>

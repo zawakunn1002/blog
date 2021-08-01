@@ -3,17 +3,17 @@
     get_header();
 ?>
 
-<section class="o-bread_list is-lower innerBox">
-  <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p><a href="<?=home_url(); ?>/blog">ブログ一覧</a></p>
-  <p><?php the_title(); ?></p>
-</section>
+<ul class="o-bread_list is-lower innerBox">
+  <li><a href="<?=home_url(); ?>">トップ</a></li>
+  <li><a href="<?=home_url(); ?>/blog">ブログ一覧</a></li>
+  <li><?php the_title(); ?></li>
+</ul>
 
 <div class="p-single is-blog">
   <div class="innerBox p-single__blog">
     <div class="p-single__blog__content">
       <?php if(have_posts()): while(have_posts()):the_post(); ?>
-      <h1 class="o-title is-single center bold"><?php the_title(); ?></h1>
+      <h1 class="o-title is-single bold"><?php the_title(); ?></h1>
       <p class="day right">
         投稿日：<?php echo get_the_date('Y/n/j'); ?>
       </p>

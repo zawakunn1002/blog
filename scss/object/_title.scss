@@ -148,8 +148,11 @@
     font-size: 18px;
     color: $c_black;
     line-height: 30px;
+    letter-spacing: 0.05em;
+    text-align: left;
     @include mq{
       font-size: 24px;
+      text-align: center;
     }
   }
 }

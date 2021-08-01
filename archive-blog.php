@@ -3,10 +3,10 @@
     get_header();
 ?>
 
-<section class="o-bread_list is-lower innerBox">
-  <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p><a href="<?=home_url(); ?>/blog">ブログ一覧</a></p>
-</section>
+<ul class="o-bread_list is-lower innerBox">
+  <li><a href="<?=home_url(); ?>">トップ</a></li>
+  <li><a href="<?=home_url(); ?>/blog">ブログ一覧</a></li>
+</ul>
 
 
 <div class="innerBox p-archive p-index">
@@ -44,12 +44,13 @@
         </p>
         <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
         <p class="category">
-          <span>
-            <?php
+          <?php
               $terms = get_the_terms( $post ->ID, 'blogcategory' );
-                echo $terms[0]->name;
-            ?>
-          </span>
+              $length = count($terms);
+              for ($i = 0; $i <= $length - 1; $i++){
+                echo '<span>'.$terms[$i]->name.'</span>';
+              }
+          ?>
         </p>
       </div>
       <?php endwhile; ?>

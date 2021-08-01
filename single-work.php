@@ -3,11 +3,11 @@
     get_header();
 ?>
 
-<section class="o-bread_list is-lower innerBox">
-  <p><a href="<?=home_url(); ?>">トップ</a></p>
-  <p><a href="<?=home_url(); ?>/work">作品一覧</a></p>
-  <p><?php the_title(); ?></p>
-</section>
+<ul class="o-bread_list is-lower innerBox">
+  <li><a href="<?=home_url(); ?>">トップ</a></li>
+  <li><a href="<?=home_url(); ?>/work">作品一覧</a></li>
+  <li><?php the_title(); ?></li>
+</ul>
 
 <section class="p-single">
   <div class="innerBox">

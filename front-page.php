@@ -60,12 +60,13 @@
           </p>
           <p class="text"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
           <p class="category">
-            <span>
-              <?php
+            <?php
                 $terms = get_the_terms( $post ->ID, 'blogcategory' );
-                  echo $terms[0]->name;
-              ?>
-            </span>
+                $length = count($terms);
+                for ($i = 0; $i <= $length - 1; $i++){
+                  echo '<span>'.$terms[$i]->name.'</span>';
+                }
+            ?>
           </p>
         </div>
         <?php
