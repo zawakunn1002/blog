@@ -2162,8 +2162,32 @@ footer p {
   background-color: #000;
 }
 
+.o-sidebar__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .o-sidebar__content__detail {
+  width: 45%;
   margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .o-sidebar__content__detail {
+    width: 32%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .o-sidebar__content__detail {
+    width: 100%;
+  }
 }
 
 .o-sidebar__content__detail .image {

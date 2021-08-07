@@ -102,7 +102,17 @@
     }
   }
   &__content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     &__detail{
+      width: 47%;
+      @include mq{
+        width: 32%;
+      }
+      @include mq_m{
+        width: 100%;
+      }
       margin-bottom: 20px;
       .image{
         overflow: hidden;
