@@ -54,9 +54,11 @@
           <p class="category">
             <?php
               $terms = get_the_terms( $post ->ID, 'workstag' );
-              $length = count($terms);
-              for ($i = 0; $i <= $length - 1; $i++){
-                echo '<span>'.$terms[$i]->name.'</span>';
+              if (is_array($terms)){
+                $length = count($terms);
+                for ($i = 0; $i <= $length - 1; $i++){
+                  echo '<span>'.$terms[$i]->name.'</span>';
+                }
               }
             ?>
           </p>

@@ -42,8 +42,8 @@
         <li class="center"><a href="<?=home_url(); ?>/contact#privacy">プライバシーポリシー</a></li>
       </ul>
       <div class="header-r__navi__icon">
-        <a href="https://twitter.com/zawakun1002" target="_blank" rel=”noopener noreferrer”><i class="fab fa-twitter"></i></a>
-        <a href="https://www.youtube.com/channel/UC8jc8RCOk-buQv8h1gx1ChQ" target="_blank" rel=”noopener noreferrer”><i class="fab fa-youtube"></i></a>
+        <a href="https://twitter.com/zawakun1002" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UC8jc8RCOk-buQv8h1gx1ChQ" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </header>

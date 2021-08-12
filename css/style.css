@@ -2174,7 +2174,7 @@ footer p {
 }
 
 .o-sidebar__content__detail {
-  width: 45%;
+  width: 47%;
   margin-bottom: 20px;
 }
 
@@ -2636,6 +2636,7 @@ footer p {
   font-size: 16px;
   font-family: 'Noto Serif JP', serif;
   max-width: 100%;
+  resize: vertical;
 }
 
 .p-contact__main__right label {
