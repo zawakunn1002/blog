@@ -1766,13 +1766,6 @@ footer p {
   }
 }
 
-@media (min-width: 1180px) {
-  .o-form.is-inquiry {
-    margin: 0 0 80px;
-    width: 100%;
-  }
-}
-
 .o-form.is-inquiry .inquiry__list {
   margin-bottom: 20px;
 }
